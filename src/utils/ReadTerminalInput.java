@@ -8,7 +8,7 @@ public class ReadTerminalInput implements IReadInput {
 
 
     @Override
-    public int intInput() throws Exception{
+    public int intInput() throws Exception {
         System.out.println("->");
         try {
             int inputInt = input.nextInt();
@@ -29,7 +29,7 @@ public class ReadTerminalInput implements IReadInput {
     }
 
     @Override
-    public double doubleInput() throws Exception{
+    public double doubleInput() throws Exception {
         System.out.println("->");
         try {
             double inputDouble = input.nextDouble();

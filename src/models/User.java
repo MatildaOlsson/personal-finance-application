@@ -19,9 +19,11 @@ public class User {
     public String getName() {
         return name;
     }
+
     public ArrayList<Transactions> getTransactions() {
         return transactions;
     }
+
     public File getUserFile() {
         return userFile;
     }

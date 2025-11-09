@@ -20,31 +20,37 @@ public class Transactions {
         this.week = week;
     }
 
-    public void setSum(double sum) {
-        this.sum = sum;
-    }
     public double getSum() {
         return sum;
     }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
     public String getDay() {
         return day;
     }
-    public String getYear(){
+
+    public String getYear() {
         return year;
     }
+
     public String getMonth() {
         return month;
     }
+
     public String getWeek() {
         return week;
     }
+
     public String getCurrency() {
         return currency;
     }
 
     @Override
     public String toString() {
-       return   sum +
+        return sum +
                 " " + currency +
                 ", Type: '" + type + '\'' +
                 ", Date: " + day + "/" + month + "/" + year +

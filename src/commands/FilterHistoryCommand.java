@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class FilterHistoryCommand extends Command {
-    ArrayList<Transactions> transactionList;
     protected int choice = 0;
     protected String year;
     protected String month;
+    ArrayList<Transactions> transactionList;
     String day;
     String week;
     ReadTerminalInput input = new ReadTerminalInput();
@@ -67,8 +67,7 @@ public class FilterHistoryCommand extends Command {
             String sInput = input.stringInput();  //TODO lägga till samma logik i metoden nedanför? //Gard clauses !??
             if (formatValidationString.test(sInput)) {
                 year = sInput;
-            }
-            else {
+            } else {
                 System.out.println("Wrong format, year must be in format xxxx. Try again.");
             }
         } catch (Exception e) {
@@ -87,8 +86,7 @@ public class FilterHistoryCommand extends Command {
                 if (formatValidationString.test(sValue)) {
                     value = sValue;
                     break;
-                }
-                else {
+                } else {
                     System.out.println("Wrong format, your " + type + " must be in format xx. Try again.");
                 }
             } catch (Exception e) {

@@ -1,7 +1,7 @@
 package utils;
 
 public interface IReadInput {
-     int intInput () throws Exception;
+    int intInput() throws Exception;
 
     String stringInput() throws Exception;
 

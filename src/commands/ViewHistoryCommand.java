@@ -12,17 +12,17 @@ public class ViewHistoryCommand extends Command {
         this.transactionList = transactionList;
     }
 
-    @Override
-    public void execute() {
-        transactionList.stream()
-                        .forEach(t-> System.out.println(t));
-    }
-
     public static void viewTotalHistory(ArrayList<Transactions> transactionsArrayList) {
         System.out.println("Your transactions: ");
         for (Transactions t : transactionsArrayList) {
             System.out.println("Transaction: " + t);
         }
 
+    }
+
+    @Override
+    public void execute() {
+        transactionList.stream()
+                .forEach(t -> System.out.println(t));
     }
 }

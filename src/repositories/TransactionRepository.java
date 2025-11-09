@@ -28,31 +28,31 @@ public class TransactionRepository {
     }
 
     public static void saveToFile(Transactions transaction, String fileName) {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
-        String sum = transaction.getSum() + "";
-        String year = transaction.getYear() + "";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+            String sum = transaction.getSum() + "";
+            String year = transaction.getYear() + "";
 
-        writer
-                .append("Amount: ")
-                .append(sum)
-                .append(" ")
-                .append(transaction.getCurrency())
-                .append("\n")
-                .append("Date: ")
-                .append(year) // TODO Se över så att filsparningen blir snyggare
-                .append("-")
-                .append(transaction.getMonth())
-                .append("-")
-                .append(transaction.getDay())
-                .append("\n")
-                .append("--------")
-                .append("\n");
+            writer
+                    .append("Amount: ")
+                    .append(sum)
+                    .append(" ")
+                    .append(transaction.getCurrency())
+                    .append("\n")
+                    .append("Date: ")
+                    .append(year) // TODO Se över så att filsparningen blir snyggare
+                    .append("-")
+                    .append(transaction.getMonth())
+                    .append("-")
+                    .append(transaction.getDay())
+                    .append("\n")
+                    .append("--------")
+                    .append("\n");
 
-        System.out.println("The transaction was saved to file");
+            System.out.println("The transaction was saved to file");
 
-    } catch (IOException e) {
-        System.out.println("Transaction was not able to be saved to file");
-        e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Transaction was not able to be saved to file");
+            e.printStackTrace();
+        }
     }
-}
 }

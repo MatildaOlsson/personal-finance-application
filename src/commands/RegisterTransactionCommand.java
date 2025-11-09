@@ -15,13 +15,11 @@ public class RegisterTransactionCommand extends Command {
     protected double sum;
     protected String type;
     protected String currency;
-
+    protected String week;
     LocalDate today = LocalDate.now();
     protected int day = today.getDayOfMonth();
     protected int month = today.getMonthValue();
     protected int year = today.getYear();
-    protected String week;
-
     ReadTerminalInput input = new ReadTerminalInput();
 
     public RegisterTransactionCommand(File userFile, String type, String currency, ArrayList<Transactions> transactionlist) {
@@ -30,6 +28,16 @@ public class RegisterTransactionCommand extends Command {
         this.type = type;
         this.currency = currency;
         this.transactionList = transactionlist;
+    }
+
+    protected static String getStringFormatOfDateValue(int dayMonthOrWeekValue) {
+        String stringedValue;
+        if (dayMonthOrWeekValue < 10 && dayMonthOrWeekValue > 0) {
+            stringedValue = "0" + dayMonthOrWeekValue;
+        } else {
+            stringedValue = "" + dayMonthOrWeekValue;
+        }
+        return stringedValue;
     }
 
     @Override
@@ -44,7 +52,7 @@ public class RegisterTransactionCommand extends Command {
         String choice = "";
 
         try {
-             choice = input.stringInput();
+            choice = input.stringInput();
         } catch (Exception e) {
             System.out.println("Wrong input. Try again with letters");
         }
@@ -55,8 +63,7 @@ public class RegisterTransactionCommand extends Command {
             printTransaction(transactions);
             transactionList.add(transactions); // Sparar både till arraylist och till fil då jag inte hunnit implementera hela repositorit
             TransactionRepository.saveToFile(transactions, fileName);
-        }
-        else {
+        } else {
             String monthString = getStringFormatOfDateValue(month); //Default att registrera på dagens datum
             String dayString = getStringFormatOfDateValue(day);
             String yearString = getStringFormatOfDateValue(year);
@@ -155,22 +162,11 @@ public class RegisterTransactionCommand extends Command {
         return new Transactions(sum, type, currency, yearString, monthString, dayString, week);
     }
 
-
     protected void printTransaction(Transactions transactions) {
         String dayString = getStringFormatOfDateValue(day);
         String monthString = getStringFormatOfDateValue(month);
 
         System.out.println("Your transaction: " + sum + " " + currency + " will be saved on date: " + year + "-" + monthString + "-" + dayString);
-    }
-
-    protected static String getStringFormatOfDateValue(int dayMonthOrWeekValue) {
-        String stringedValue;
-        if (dayMonthOrWeekValue < 10 && dayMonthOrWeekValue > 0) {
-            stringedValue = "0" + dayMonthOrWeekValue;
-        } else {
-            stringedValue = "" + dayMonthOrWeekValue;
-        }
-        return stringedValue;
     }
 
     private String weekOfDate2025(int monthValue, int dayValue) {

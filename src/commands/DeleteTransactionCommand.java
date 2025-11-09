@@ -23,7 +23,7 @@ public class DeleteTransactionCommand extends Command {
     public void execute() {
         System.out.println("Please select the transaction you want to delete: ");
         for (int i = 0; i < transactionList.size(); i++) { //TODO ENHANCED LOOPS??
-            System.out.println(i + 1 + ". " + transactionList.get(i).getSum() + " " + currency + " (" + transactionList.get(i).getYear() + "-" + transactionList.get(i).getMonth()+ "-" + transactionList.get(i).getDay() + ")");
+            System.out.println(i + 1 + ". " + transactionList.get(i).getSum() + " " + currency + " (" + transactionList.get(i).getYear() + "-" + transactionList.get(i).getMonth() + "-" + transactionList.get(i).getDay() + ")");
         }
 //        Scanner input = new Scanner(System.in);
 // TODO IMPORTERA UTILS SOM SCANNER?
@@ -36,7 +36,7 @@ public class DeleteTransactionCommand extends Command {
 
         try {
             if (choice > 0 || choice < transactionList.size()) {
-                System.out.println("The transaction " + transactionList.get(choice).getSum() + " " + currency+ " will be deleted.");
+                System.out.println("The transaction " + transactionList.get(choice).getSum() + " " + currency + " will be deleted.");
                 transactionList.remove(choice);
             }
         } catch (IndexOutOfBoundsException e) {
@@ -45,8 +45,7 @@ public class DeleteTransactionCommand extends Command {
     }
 
 
-
-    }
+}
 
 
 
